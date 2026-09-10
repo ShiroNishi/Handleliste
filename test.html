@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Slett fra liste</title>
+    <style>
+        /* Litt enkel styling for at det skal se pent ut */
+        ul {
+            list-style-type: none;
+            padding: 0;
+            width: 300px;
+        }
+        li {
+            padding: 10px;
+            background-color: #f0f0f0;
+            margin-bottom: 5px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+        li:hover {
+            background-color: #ffcccc; /* Blir rød når du holder musa over */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Min Huskeliste</h1>
+    <p>Klikk på en ting i listen for å slette den:</p>
+
+    <!-- Her er selve listen vår -->
+    <ul id="minListe">
+        <li>Kjøpe melk</li>
+        <li>Vaske gulvet</li>
+        <li>Gå en tur</li>
+        <li>Lese en bok</li>
+    </ul>
+
+    <script>
+        // 1. Finn listen i HTML-koden
+        const listen = document.getElementById("minListe");
+
+        // 2. Lytt etter klikk på HELE listen
+        listen.addEventListener("click", function(event) {
+            
+            // 3. Sjekk om det brukeren faktisk traff var et <li>-element
+            if (event.target.tagName === "LI") {
+                
+                // 4. Slett elementet som ble klikket på
+                event.target.remove();
+                
+            }
+        });
+    </script>
+
+</body>
+</html>

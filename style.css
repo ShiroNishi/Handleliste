@@ -1,0 +1,68 @@
+h1{
+    text-align: center;
+}
+
+.del{
+    height: 50px;
+    width: 50px;
+}
+
+#grid-container{
+    margin-left: 5%;
+    margin-right: 5%;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    justify-items: stretch; /*Dette er defaulten, men grei å huske*/
+    gap: 3%;
+}
+
+.grid-lists{
+    min-height: 100px;
+    max-height: 800px;
+    overflow: auto;
+    background-color: antiquewhite;
+    border: solid #665248;
+    border-radius: 5px;
+}
+
+.grid-notes{
+    padding-left: 20px;
+
+    overflow: auto;
+    background-color: antiquewhite;
+    border: solid #665248;
+    border-radius: 5px;
+}
+
+.listItem{
+    padding-top: 10px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    max-width: 80%;
+    border-bottom: solid black;
+    border-bottom-width: 1px;
+    text-align: left;
+    font-size: 20px;
+}
+
+input.addStuff{
+    background-color: rgb(247, 236, 223);
+    height: 25px;
+    width: 80%;
+    margin: 2% 0%;
+}
+
+img{
+    height: 17px;
+    width: 15px;
+}
+
+table{
+    border-collapse: separate;
+    border-spacing: 40px 0px;
+}
+
+td:hover{
+    cursor: pointer;
+}
