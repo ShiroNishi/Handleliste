@@ -13,6 +13,12 @@
     }
 
     function addNewListItem(newItem, index){
-        listOverwiew[index].items.push(newItem);
-        openCurentListPage(index);
+        let capitalize = newItem.charAt(0).toUpperCase() + newItem.slice(1)
+        listOverwiew[index].items.push(capitalize);
+        openCurentListPage();
+    }
+
+    function openList(index){
+        currentListOpen = index;
+        updateView();
     }

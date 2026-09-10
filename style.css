@@ -3,10 +3,8 @@ h1{
 }
 
 #grid-container{
-    margin-left: 5%;
-    margin-right: 5%;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 3fr;
     justify-content: center;
     justify-items: stretch; /*Dette er defaulten, men grei å huske*/
     gap: 3%;
@@ -55,7 +53,7 @@ img{
 
 table{
     border-collapse: separate;
-    border-spacing: 40px 0px;
+    border-spacing: 0px 0px;
 }
 
 td:hover{
