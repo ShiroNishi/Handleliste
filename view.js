@@ -1,23 +1,24 @@
-
-//Model
-const pages = {
-
-}
-
-let listCount = 0;
-let currentList = "";
-
-let listOverwiew = [];
-
 //View
     updateView()
     function updateView(){
         app.innerHTML = /*HTML*/ `
-            <input class="addStuff" onchange="addNewList(this.value)">
-            <table>${showList()}</table>
+            <h1><u>Mine lister</u></h1>
+            <div id="grid-container">
+                <div>${showListMenu()}</div>
+                
+            </div>
+            
         `; 
     }
 
+    function showListMenu(){
+        let html = /*HTML*/ `
+            <input class="addStuff" onchange="addNewList(this.value)">
+            <table>${showList()}</table>
+        `
+        return html
+
+    }
 
     function showList(){          //Må bruke return siden ul i UpdateView() kjører denne i en t.l.
         let html = "";
@@ -53,23 +54,4 @@ let listOverwiew = [];
             `
         }
         return html;
-    }
-
-
-//Controller
-
-    function addNewList(newListItem){
-        let capitalize = newListItem.charAt(0).toUpperCase() + newListItem.slice(1)
-        listOverwiew.push({name: capitalize, items: []});
-        updateView();
-    }
-
-    function deleteList(index){
-        listOverwiew.splice(index, 1);
-        updateView();
-    }
-
-    function addNewListItem(newItem, index){
-        listOverwiew[index].items.push(newItem);
-        openCurentListPage(index);
     }
