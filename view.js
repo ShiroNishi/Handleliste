@@ -42,9 +42,9 @@
     function openCurentListPage(){ //Denne endrer HELE HTML'en på siden, derfor gjenbruker vi app.innerHTML her
         let html = "";
         if (currentListOpen === -1){
-             html = /*HTML*/ `<!--
+             html = /*HTML*/ `
             <input style="background-color: #f5e6b6;"
-            placeholder="Legg til noe i listen">-->
+            placeholder="Legg til noe i listen">
             `
         } else {
             html = /*HTML*/ `                  
