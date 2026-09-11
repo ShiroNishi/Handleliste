@@ -3,6 +3,17 @@
     function updateView(){
         app.innerHTML = /*HTML*/ `
             <h1><u>Handleliste</u></h1>
+            <div>
+                    <label for="sort">Sorter lister:</label>
+                    <select>
+                        <option selected hidden>Original</option>
+                        <option onclick="sortList('original')">Original</option>
+                        <option value="this.value" onclick="sortList('alphabet')">Alfabetisk</option>
+                        <option value="this.value" onclick="sortList('btos')">Størst til minst</option>
+                        <option>Minst til størst</option>
+                    </select>
+                </div>
+            </div>
             <div id="grid-container">
                 <div class="grid-lists">
                     <div style="text-align: center;"><b>Mine Lister:</b></div>
@@ -13,17 +24,6 @@
                     ${openCurentListPage()}
                 </div>
 
-                <div>
-                    <label for="sort">Sorter:</label>
-                    <select>
-                        <option value="" selected hidden>--Velg--</option>
-                        <option>Alfabetisk</option>
-                        <option>Størst til minst</option>
-                        <option>Minst til størst</option>
-                        <option>Original</option>
-                    </select>
-                </div>
-            </div>
         `; 
     }
 
@@ -93,6 +93,20 @@
     }
 
 
-    function sortItemList(){
-
+    function sortList(type){
+        if (type === 'alphabet'){
+            listOverwiew.sort((a, b) => {
+                const valueA = Object.values(a)[0];
+                const valueB = Object.values(b)[0];
+                console.log(String(valueA))
+                console.log(String(valueB))
+                return String(valueA)
+            });
+        } else if (type === 'btos'){
+            
+            for (let i = 0; i < listOverwiew.length; i++){
+                
+            }
+        }
+        updateView()
     }
