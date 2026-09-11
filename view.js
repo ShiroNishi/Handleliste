@@ -12,6 +12,17 @@
                 <div class="grid-lists">
                     ${openCurentListPage()}
                 </div>
+
+                <div>
+                    <label for="sort">Sorter:</label>
+                    <select>
+                        <option value="" selected hidden>--Velg--</option>
+                        <option>Alfabetisk</option>
+                        <option>Størst til minst</option>
+                        <option>Minst til størst</option>
+                        <option>Original</option>
+                    </select>
+                </div>
             </div>
         `; 
     }
@@ -73,10 +84,15 @@
         for (let i = 0; i < listOverwiew[index].items.length; i++){
             html += /*HTML*/ `
                 <tr>
-                    <td class="listItem">${listOverwiew[index].items[i]}
+                    <td class="listItem"><input type="checkbox">${listOverwiew[index].items[i]}
                     </td>
                 </tr>
             `
         }
         return html;
+    }
+
+
+    function sortItemList(){
+
     }
