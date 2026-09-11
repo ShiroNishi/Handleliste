@@ -2,17 +2,23 @@
     updateView()
     function updateView(){
         app.innerHTML = /*HTML*/ `
-            <h1><u>Mine lister</u></h1>
+            <h1><u>Handleliste</u></h1>
             <div id="grid-container">
-                <div>${showListMenu()}</div>
-                <div>${openCurentListPage()}</div>
+                <div class="grid-lists">
+                    <div style="text-align: center;"><b>Mine Lister:</b></div>
+                    ${showListMenu()}
+                </div>
+                
+                <div class="grid-lists">
+                    ${openCurentListPage()}
+                </div>
             </div>
         `; 
     }
 
     function showListMenu(){
         let html = /*HTML*/ `
-            <input style="background-color: #f75260;" 
+            <input class="addStuff" 
             onchange="addNewList(this.value)"
             placeholder="Lag ny liste">
             <table>${showList()}</table>
@@ -25,13 +31,17 @@
         for (let i = 0; i < listOverwiew.length; i++){
             html += /*HTML*/ `
             <tr> 
-                <td style="cursor:pointer;" 
-                onclick="openList(${i})">
+                <td style="cursor:pointer;" class="listItem" 
+                onclick="openList(${i})"> <!--Navnet/knappen på den nye listen din -->
                 ${listOverwiew[i].name}
-                </td> <!--Navnet/knappen på den nye listen din -->
+                </td> 
 
-                <td>  
-                    <img onclick="deleteList(${i})" src="trash_idle.png" onmouseover="this.src='trash_hover.png'" onmouseout="this.src='trash_idle.png'">
+                <td>  <!--Søppelbøtta -->
+                    <img onclick="deleteList(${i})" 
+                    src="trash_idle.png" 
+                    onmouseover="this.src='trash_hover.png'" 
+                    onmouseout="this.src='trash_idle.png'"
+                    >
                 </td>
             </tr>`
         }
@@ -42,13 +52,16 @@
     function openCurentListPage(){ //Denne endrer HELE HTML'en på siden, derfor gjenbruker vi app.innerHTML her
         let html = "";
         if (currentListOpen === -1){
-             html = /*HTML*/ `
-            <input style="background-color: #f5e6b6;"
-            placeholder="Legg til noe i listen">
+             html = /*HTML*/ `<div style="text-align: center;"><b>Lag en liste og trykk på den 
+             for å åpne</b></div>
             `
         } else {
-            html = /*HTML*/ `                  
-                <input onchange="addNewListItem(this.value, ${currentListOpen})">
+            html = /*HTML*/ `     
+                <div style="text-align: center;"><b>Lag en liste og trykk på den 
+             for å åpne</b></div>             
+                <input class="addStuff"
+                placeholder="Legg til noe i listen"
+                onchange="addNewListItem(this.value, ${currentListOpen})">
                 <table>${showCurrentList(currentListOpen)}</table>
             `
         }
@@ -60,7 +73,7 @@
         for (let i = 0; i < listOverwiew[index].items.length; i++){
             html += /*HTML*/ `
                 <tr>
-                    <td>${listOverwiew[index].items[i]}
+                    <td class="listItem">${listOverwiew[index].items[i]}
                     </td>
                 </tr>
             `
